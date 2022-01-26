@@ -28,7 +28,12 @@ export default function ExampleArray() {
                             </div>
                         ))}
                     </div>
-                
+                <div>
+                    datos de la lista
+                </div>
+                <pre>
+                    {JSON.stringify(personas,null,2)}
+                </pre>
 
             </div>
     );

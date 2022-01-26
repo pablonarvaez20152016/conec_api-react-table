@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import { BasicTable } from './components/BasicTable'
+import ExampleEstate from './components/ExampleEstate'
 
 function App() {
   return (
     <div className='App'>
-      <BasicTable />
+      <ExampleEstate />
     </div>
   )
 }

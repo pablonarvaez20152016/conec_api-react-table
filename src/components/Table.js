@@ -1,13 +1,6 @@
 import React, { useEffect } from "react";
 import { useTable, usePagination } from "react-table";
 
-/* type Props = {
-  data: any[];
-  fetchData: (pageIndex: number) => Promise<any>;
-  columns: any[];
-  pageCount: number;
-}; */
-
 export default function Table({
   data,
   fetchData,

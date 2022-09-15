@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useTable, usePagination, useFilters, useRowSelect } from "react-table";
+import { useTable, usePagination} from "react-table";
 
 export default function Table({ data, fetchData, columns, pageCount: controlledPageCount}) {
   const tableInstance = useTable({
@@ -9,9 +9,7 @@ export default function Table({ data, fetchData, columns, pageCount: controlledP
                                     manualPagination: true,
                                     pageCount: controlledPageCount
                                   },
-                                  useFilters,
-                                  usePagination,
-                                  useRowSelect
+                                  usePagination
                                 );
 
   const {

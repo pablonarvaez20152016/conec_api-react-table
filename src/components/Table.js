@@ -1,22 +1,18 @@
 import React, { useEffect } from "react";
-import { useTable, usePagination } from "react-table";
+import { useTable, usePagination, useFilters, useRowSelect } from "react-table";
 
-export default function Table({
-  data,
-  fetchData,
-  columns,
-  pageCount: controlledPageCount
-}) {
-  const tableInstance = useTable(
-    {
-      columns,
-      data,
-      initialState: { pageIndex: 0 },
-      manualPagination: true,
-      pageCount: controlledPageCount
-    },
-    usePagination
-  );
+export default function Table({ data, fetchData, columns, pageCount: controlledPageCount}) {
+  const tableInstance = useTable({
+                                    columns,
+                                    data,
+                                    initialState: { pageIndex: 0 },
+                                    manualPagination: true,
+                                    pageCount: controlledPageCount
+                                  },
+                                  useFilters,
+                                  usePagination,
+                                  useRowSelect
+                                );
 
   const {
     canPreviousPage,
@@ -32,6 +28,7 @@ export default function Table({
   } = tableInstance;
 
   useEffect(() => {
+    console.log('se creo tabla nuevamente')
     fetchData(pageIndex);
   }, [pageIndex, fetchData]);
 

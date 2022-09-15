@@ -1,6 +1,6 @@
 import React,{ useCallback, useMemo, useState } from "react";
 import Table from "./Table";
-import FetchUsers from "./FetchUsers";
+import  FetchUsers, { getInconsistenciasPlanosPaginados } from "./FetchUsers";
 
 export const Appp = () => {
   const [isLoading, setLoading] = useState(false);
@@ -9,26 +9,30 @@ export const Appp = () => {
 
   const fetchData = useCallback(async function (page) {
     setLoading(true);
+    /* const json = await getInconsistenciasPlanosPaginados(8700,'2022-09-14 01:22:49.684642',page + 1); */
     const json = await FetchUsers(page + 1);
-    setUsers(json.data);
-    setPageCount(json.total_pages);
+    setUsers(json.list);
+    setPageCount(json.apiPagination.totalPages);
     setLoading(false);
   }, []);
 
   const columns = useMemo(
     () => [
       {
-        Header: "Id cambiado",
-        accessor: "id"
-      },
-      {
-        Header: "Email",
-        accessor: "email"
-      },
-      {
-        Header: "First Name",
-        accessor: "first_name"
-      }
+        Header: "Nombre campo",
+        accessor: "nombre_campo_error",
+     
+        },
+        {
+        Header: "Tipo error",
+        accessor: "tipo_error",
+     
+        },
+        {
+        Header: "Descripción error",
+        accessor: "descripcion_error",
+       
+        },
     ],
     []
   );
@@ -49,5 +53,4 @@ export const Appp = () => {
       />
       {isLoading && <div>Cargando...</div>}
     </div>
-  );
-}
+  )}

@@ -20,18 +20,15 @@ export const Appp = () => {
     () => [
       {
         Header: "Nombre campo",
-        accessor: "nombre_campo_error",
-     
+        accessor: "nombre_campo_error"
         },
         {
         Header: "Tipo error",
-        accessor: "tipo_error",
-     
+        accessor: "tipo_error"
         },
         {
         Header: "Descripción error",
-        accessor: "descripcion_error",
-       
+        accessor: "descripcion_error"
         },
     ],
     []
@@ -39,12 +36,7 @@ export const Appp = () => {
 
   return (
     <div className="App">
-      <h1>
-        <span role="img" aria-label="heart">
-          💛
-        </span>{" "}
-        cambios
-      </h1>
+
       <Table
         columns={columns}
         data={users}
